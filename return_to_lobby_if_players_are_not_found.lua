@@ -1,3 +1,11 @@
+_G.config = {
+    waitTime = 3,
+    buangPremium = false, --change to false if use Freemium--
+    buangKey = "put your script key here", --skip this if buangPremium is false--
+    playerNames = {"buang", "buang2", "buang3"},
+    requiredPlayers = 1
+}
+
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
 
@@ -12,7 +20,7 @@ textLabel.TextStrokeColor3 = Color3.new(0, 0, 0)
 textLabel.TextStrokeTransparency = 0
 textLabel.Parent = screenGui
 
-local function displayText(message)
+local function displayText (message)
     textLabel.Text = message
     wait(3)
     textLabel.Text = ""
@@ -33,15 +41,15 @@ local function returnToLobby()
 end
 
 local function buangScript()
-    displayText("Executing BuangHub..!")
-    scriptExecuted = true
-    local script_key
     if _G.config.buangPremium then
+        displayText("[PREMIUM]\nExecuting BuangHub..!")
         script_key = _G.config.buangKey
         loadstring(game:HttpGet("https://raw.githubusercontent.com/buang5516/buanghub/main/PremiumBuangHub.lua"))()
     else
+        displayText("[Freemium]\nExecuting BuangHub..!")
         loadstring(game:HttpGet("https://raw.githubusercontent.com/buang5516/buanghub/main/BUANGHUB.lua"))()
     end
+    scriptExecuted = true
 end
 
 local function checkPlayer()
@@ -64,10 +72,6 @@ local function checkPlayer()
     else
         buangScript()
     end
-end
-
-local function removeScript()
-    script:Destroy()
 end
 
 while not scriptExecuted do
