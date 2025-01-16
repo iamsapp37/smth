@@ -12,7 +12,7 @@ textLabel.TextStrokeColor3 = Color3.new(0, 0, 0)
 textLabel.TextStrokeTransparency = 0
 textLabel.Parent = screenGui
 
-local function displayText (message)
+local function displayText(message)
     textLabel.Text = message
     wait(3)
     textLabel.Text = ""
@@ -34,14 +34,14 @@ end
 
 local function buangScript()
     displayText("Executing BuangHub..!")
+    scriptExecuted = true
+    local script_key
     if _G.config.buangPremium then
         script_key = _G.config.buangKey
         loadstring(game:HttpGet("https://raw.githubusercontent.com/buang5516/buanghub/main/PremiumBuangHub.lua"))()
     else
         loadstring(game:HttpGet("https://raw.githubusercontent.com/buang5516/buanghub/main/BUANGHUB.lua"))()
     end
-    scriptExecuted = true
-    removeScript()
 end
 
 local function checkPlayer()
