@@ -34,8 +34,12 @@ end
 
 local function buangScript()
     displayText("Executing BuangHub..!")
-    script_key = _G.config.buangKey
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/buang5516/buanghub/main/PremiumBuangHub.lua"))()
+    if _G.config.buangPremium then
+        script_key = _G.config.buangKey
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/buang5516/buanghub/main/PremiumBuangHub.lua"))()
+    else
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/buang5516/buanghub/main/BUANGHUB.lua"))()
+    end
     scriptExecuted = true
     removeScript()
 end
