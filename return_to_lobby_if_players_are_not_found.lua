@@ -1,11 +1,3 @@
-_G.config = {
-    waitTime = 3,
-    buangPremium = false, --change to false if use Freemium--
-    buangKey = "put your script key here", --skip this if buangPremium is false--
-    playerNames = {"buang", "buang2", "buang3"},
-    requiredPlayers = 1
-}
-
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
 
