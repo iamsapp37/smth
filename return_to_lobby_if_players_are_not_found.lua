@@ -62,6 +62,7 @@ local function checkPlayer()
         for _, p in ipairs(players:GetPlayers()) do
             if p.Name == playerName then
                 playerFound = playerFound + 1
+                print("[Player found: " .. playerFound .. " ]")
                 break
             end
         end
