@@ -43,10 +43,12 @@ end
 local function buangScript()
     if _G.config.buangPremium then
         displayText("[PREMIUM]\nExecuting BuangHub..!")
+        print("[Executing BuangHub..!]")
         script_key = _G.config.buangKey
         loadstring(game:HttpGet("https://raw.githubusercontent.com/buang5516/buanghub/main/PremiumBuangHub.lua"))()
     else
         displayText("[Freemium]\nExecuting BuangHub..!")
+        print("[Executing BuangHub..!]")
         loadstring(game:HttpGet("https://raw.githubusercontent.com/buang5516/buanghub/main/BUANGHUB.lua"))()
     end
     scriptExecuted = true
@@ -76,6 +78,7 @@ end
 
 while not scriptExecuted do
     displayText("Checking players...")
+    print("[Checking players...]")
     checkPlayer()
     wait(_G.config.waitTime)
 end
