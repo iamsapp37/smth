@@ -50,9 +50,7 @@ local function checkPlayer()
     if scriptExecuted then return end
 
     local playerFound = 0
-    print("[Players found(first): " .. playerFound .. " ]")
     for _, playerName in ipairs(_G.config.playerNames) do
-        print("[Players found(second): " .. playerFound .. " ]")
         for _, p in ipairs(players:GetPlayers()) do
             if p.Name == playerName then
                 playerFound = playerFound + 1
